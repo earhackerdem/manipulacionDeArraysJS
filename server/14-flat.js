@@ -24,4 +24,16 @@ function aplanar(list) {
     return newList;
 }
 
-console.log(aplanar(matriz))
+function aplanarMatriz(list){
+    let array = [];
+    for(element of list){
+        if(Array.isArray(element)){
+        array = array.concat(aplanarMatriz(element))
+        }else{
+            array.push(element);
+        }
+    }
+    return array;
+}
+console.log('aplanar matriz',aplanarMatriz(matriz))
+console.log('aplanar',aplanar(matriz))
